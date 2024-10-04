@@ -100,7 +100,7 @@ export const api = createApi({
             }),
             invalidatesTags: (result, error, { taskId }) => [
                 { type: "Tasks", id: taskId },
-            ]
+            ],
         }),
     }),
 });
