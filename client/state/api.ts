@@ -27,7 +27,7 @@ export interface User {
     userId?: number;
     username: string;
     email: string;
-    profilePicutreUrl?: string;
+    profilePictureUrl?: string;
     cognitoId?: string;
     teamId?: number;
 }
