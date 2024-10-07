@@ -125,7 +125,6 @@ const Task = ({ task } : TaskProps ) => {
             isDragging: !!monitor.isDragging()
         })
     }));
-    console.log(task.assignee)
     const taskTagsSplit = task.tags ? task.tags.split(",") : [];
 
     const formattedStartDate = task.startDate ? format(new Date(task.startDate), "P") : "";
