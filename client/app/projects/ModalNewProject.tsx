@@ -1,4 +1,3 @@
-"use client";
 import Modal from '@/components/Modal';
 import { useCreateProjectMutation } from '@/state/api';
 import React, { useState } from 'react';
