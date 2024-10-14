@@ -19,29 +19,29 @@ const search = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             where: {
                 OR: [
                     { title: { contains: query } },
-                    { description: { contains: query } }
-                ]
-            }
+                    { description: { contains: query } },
+                ],
+            },
         });
         const projects = yield prisma.project.findMany({
             where: {
                 OR: [
                     { name: { contains: query } },
-                    { description: { contains: query } }
-                ]
-            }
+                    { description: { contains: query } },
+                ],
+            },
         });
         const users = yield prisma.user.findMany({
             where: {
-                OR: [
-                    { username: { contains: query } },
-                ]
-            }
+                OR: [{ username: { contains: query } }],
+            },
         });
         res.json({ tasks, projects, users });
     }
-    catch (err) {
-        res.status(500).json({ message: `Error performing search: ${err.message}` });
+    catch (error) {
+        res
+            .status(500)
+            .json({ message: `Error performing search: ${error.message}` });
     }
 });
 exports.search = search;
