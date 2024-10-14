@@ -18,6 +18,7 @@ const Search = () => {
     skip: searchTerm.length < 3,
   });
 
+  console.log(searchResults)
   const handleSearch = debounce(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(event.target.value);
