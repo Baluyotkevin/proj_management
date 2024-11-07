@@ -11,7 +11,23 @@ export const getUsers = async (req: Request, res: Response): Promise<void> => {
     } catch (err: any) {
         res.status(500).json({ message: `Error retrieving users: ${err.message}`});
     }
-}
+};
+
+export const getUser = async (req: Request, res: Response): Promise<void> => {
+    const { cognitoId } = req.params
+
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                cognitoId: cognitoId
+            }
+        });
+
+        res.json(user);
+    } catch (err: any) {
+        res.status(500).json({ message: `Error retrieving user ${err.message}`})
+    }
+};
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -36,4 +52,4 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
     } catch (err : any) {
         res.status(500).json({ message: `Error creating user ${err.message}`});
     }
-}
+};
